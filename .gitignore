@@ -1,0 +1,5 @@
+.idea/
+mtpsync.egg-info/
+TODO
+*.pyc
+*.yaml
