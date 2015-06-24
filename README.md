@@ -62,9 +62,41 @@ Logs are in `$XDG_DATA_HOME/mtpsync`.
 
 ### Usage
 
+    $ mtpsync -h
+    
+    # # # M T P S Y N C # # #
+    usage: mtpsync [-h] [--config CONFIG_FILE] [-r] [-s]
+    
+    MTPSync. Select FLAC files, convert to mp3, sync with MTP device.
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+    
+    Configuration:
+      Manage configuration files.
+    
+      --config CONFIG_FILE  Use an alternative configuration file.
+    
+    Actions:
+      Do things.
+    
+      -r, --refresh         Refresh export library.
+      -s, --sync            Sync export library with unlocked MTP device.
 
-    TODO
+For now there are only so many things you can do with **MTPSync**: 
 
+    mtpsync -r
+    
+Reads the configuration file, calculates the hashes of all selected files, 
+then compares them to already existing mp3 files, if any. 
+It allows **MTPync** to decide if a file has already been converted, or if
+it is a new/modified file that must be converted.
+Obsolete files are deleted.
+
+    mptsync -s
+    
+Does the above, then tries to mount an MTP device. 
+If successful, **MTPSync** rsyncs the mp3s to the MTP device, then unmounts.
 
 ### Configuration
 
